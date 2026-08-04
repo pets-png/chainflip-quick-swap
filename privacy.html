@@ -15,21 +15,24 @@
 </head>
 <body>
   <h1>Privacy Policy</h1>
-  <p class="date">Chainflip Quick Swap · Last updated: March 2026</p>
+  <p class="date">Chainflip Quick Swap · Last updated: August 2026</p>
 
   <h2>What this extension does</h2>
-  <p>Chainflip Quick Swap is a browser extension that fetches live swap quotes from Chainflip's public API and opens swap.chainflip.io with pre-filled values. It also displays live earn APYs, service status, and FLIP price data. It does not execute swaps directly and does not connect to any wallet.</p>
+  <p>Chainflip Quick Swap is a browser extension that fetches live swap quotes and lets you complete a swap from the popup. When you confirm a swap, the extension requests a Chainflip deposit address and displays it; you then send funds to that address from your own wallet. Opening the swap on swap.chainflip.io with pre-filled values remains available as an alternative. The extension also displays live earn APYs, service status, and FLIP price data. It does not connect to any wallet and never has access to your keys or your funds.</p>
 
   <h2>Data we collect</h2>
-  <p>None. This extension does not collect, transmit, or store any personal data on external servers. There are no analytics, no tracking, and no telemetry.</p>
+  <p>We collect nothing about you. There are no accounts, no analytics, no tracking and no telemetry, and nothing you do in the extension is profiled, shared or sold.</p>
+  <p>Completing a swap does, however, require the extension to <strong>transmit</strong> data. When you confirm a swap, your destination address, your refund address, the asset pair and the amount are sent to chainflip-broker.io so that a deposit address can be created for you. That is the swap request itself rather than analytics, and it cannot be avoided while still executing a swap in the popup. If you only fetch quotes, or use the "open on swap.chainflip.io" path, no address is sent to that service.</p>
 
   <h2>Data stored locally</h2>
-  <p>The extension stores the following data in your browser's local storage and extension storage (never sent anywhere): swap preferences (selected assets, amounts, mode), saved wallet addresses in the address book, swap history (local log of quotes you opened), UI settings (network, boost preference), and 30-day service status history for the Status tab.</p>
+  <p>The extension stores the following in your browser's local storage and extension storage: swap preferences (selected assets, amounts, mode), saved wallet addresses in the address book, swap history, UI settings (network, boost preference), any pending deposit channel, and 30-day service status history for the Status tab.</p>
+  <p>Your preferences, swap history, UI settings and status history stay on your device and are never sent anywhere. Addresses in the address book also stay on your device, with one exception: an address is transmitted when you use it to confirm a swap, as described above.</p>
   <p>You can clear all stored data at any time by removing the extension or clearing your browser data.</p>
 
   <h2>Network requests</h2>
-  <p>The extension makes requests to the following services. No personal data is included in any request.</p>
-  <p><strong>Chainflip Swap API</strong> (chainflip-swap.chainflip.io) — to fetch swap quotes. Only the asset pair and amount are sent.</p>
+  <p>The extension makes requests to the following services. Only the Chainflip Broker request carries personal data, and only at the moment you confirm a swap.</p>
+  <p><strong>Chainflip Broker</strong> (chainflip-broker.io) — to fetch quotes, to open a deposit address when you confirm a swap, and to follow that swap's status afterwards. Quote and status requests carry the asset pair, the amount and swap identifiers. <strong>Opening a deposit address additionally sends your destination address and your refund address.</strong> The operator of this service earns a broker commission on swaps completed through the extension; that commission is shown in the quote breakdown before you confirm.</p>
+  <p><strong>Chainflip Swap API</strong> (chainflip-swap.chainflip.io) — to fetch swap quotes, and as a fallback when the broker service is unavailable. Only the asset pair and amount are sent.</p>
   <p><strong>Chainflip GraphQL Services</strong> (cache-service.chainflip.io, lp-service.chainflip.io, reporting-service.chainflip.io) — to fetch live earn APYs, sparkline history, and service health checks.</p>
   <p><strong>Chainflip Swap App</strong> (swap.chainflip.io) — to check service availability and to open swaps.</p>
   <p><strong>CoinGecko API</strong> (api.coingecko.com) — to fetch USD prices and FLIP 30-day price chart data.</p>
