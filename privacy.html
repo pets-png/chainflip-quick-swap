@@ -18,22 +18,24 @@
   <p class="date">Chainflip Quick Swap · Last updated: August 2026</p>
 
   <h2>What this extension does</h2>
-  <p>Chainflip Quick Swap is a browser extension that fetches live swap quotes and lets you complete a swap from the popup. When you confirm a swap, the extension requests a Chainflip deposit address and displays it; you then send funds to that address from your own wallet. Opening the swap on swap.chainflip.io with pre-filled values remains available as an alternative. The extension also displays live earn APYs, service status, and FLIP price data. It does not connect to any wallet and never has access to your keys or your funds.</p>
+  <p>Chainflip Quick Swap is a browser extension that fetches live swap quotes and lets you complete a swap from the popup. When you confirm a swap, the extension requests a Chainflip deposit address and displays it; you then send funds to that address from your own wallet. Opening the swap on swap.chainflip.io with pre-filled values remains available as an alternative. The extension also displays live earn APYs, service status, and FLIP price data, and can show a read-only overview of staked and in-wallet FLIP for addresses you choose to enter. It does not connect to any wallet and never has access to your keys or your funds.</p>
 
   <h2>Data we collect</h2>
   <p>We collect nothing about you. There are no accounts, no analytics, no tracking and no telemetry, and nothing you do in the extension is profiled, shared or sold.</p>
   <p>Completing a swap does, however, require the extension to <strong>transmit</strong> data. When you confirm a swap, your destination address, your refund address, the asset pair and the amount are sent to chainflip-broker.io so that a deposit address can be created for you. That is the swap request itself rather than analytics, and it cannot be avoided while still executing a swap in the popup. If you only fetch quotes, or use the "open on swap.chainflip.io" path, no address is sent to that service.</p>
+  <p>Using the FLIP position overview also transmits data: an address you enter (or the Chainflip account derived from it) is sent to Chainflip's GraphQL services to read its delegated stake and reward history, and, for an Ethereum address, to a public Ethereum RPC to read the wallet's FLIP token balance. This is the lookup you asked for, not analytics, and it happens only for addresses you enter into that feature.</p>
 
   <h2>Data stored locally</h2>
-  <p>The extension stores the following in your browser's local storage and extension storage: swap preferences (selected assets, amounts, mode), saved wallet addresses in the address book, swap history, UI settings (network, boost preference), any pending deposit channel, and 30-day service status history for the Status tab.</p>
-  <p>Your preferences, swap history, UI settings and status history stay on your device and are never sent anywhere. Addresses in the address book also stay on your device, with one exception: an address is transmitted when you use it to confirm a swap, as described above.</p>
+  <p>The extension stores the following in your browser's local storage and extension storage: swap preferences (selected assets, amounts, mode), saved wallet addresses in the address book, swap history, UI settings (network, boost preference), any pending deposit channel, the wallet addresses you add to the FLIP position overview, and 30-day service status history for the Status tab.</p>
+  <p>Your preferences, swap history, UI settings and status history stay on your device and are never sent anywhere. Addresses stay on your device too, with two exceptions: an address-book address is transmitted when you use it to confirm a swap, and a position-overview address is transmitted when it is looked up, both as described above.</p>
   <p>You can clear all stored data at any time by removing the extension or clearing your browser data.</p>
 
   <h2>Network requests</h2>
-  <p>The extension makes requests to the following services. Only the Chainflip Broker request carries personal data, and only at the moment you confirm a swap.</p>
+  <p>The extension makes requests to the following services. A request carries personal data (an address) only when you confirm a swap or look up a FLIP position.</p>
   <p><strong>Chainflip Broker</strong> (chainflip-broker.io) — to fetch quotes, to open a deposit address when you confirm a swap, and to follow that swap's status afterwards. Quote and status requests carry the asset pair, the amount and swap identifiers. <strong>Opening a deposit address additionally sends your destination address and your refund address.</strong> The operator of this service earns a broker commission on swaps completed through the extension; that commission is shown in the quote breakdown before you confirm.</p>
   <p><strong>Chainflip Swap API</strong> (chainflip-swap.chainflip.io) — to fetch swap quotes, and as a fallback when the broker service is unavailable. Only the asset pair and amount are sent.</p>
-  <p><strong>Chainflip GraphQL Services</strong> (cache-service.chainflip.io, lp-service.chainflip.io, reporting-service.chainflip.io) — to fetch live earn APYs, sparkline history, and service health checks.</p>
+  <p><strong>Chainflip GraphQL Services</strong> (cache-service.chainflip.io, lp-service.chainflip.io, reporting-service.chainflip.io) — to fetch live earn APYs, sparkline history, and service health checks. When you use the FLIP position overview, these also receive the address you enter (or the Chainflip account derived from it) to read its delegated stake and 30-day reward history.</p>
+  <p><strong>Public Ethereum RPC</strong> (ethereum-rpc.publicnode.com) — used only by the FLIP position overview, and only for an Ethereum address you enter, to read that wallet's FLIP token balance. The address is sent to this third-party node; no other data is. It is not contacted for swaps, quotes, or any other feature.</p>
   <p><strong>Chainflip Swap App</strong> (swap.chainflip.io) — to check service availability and to open swaps.</p>
   <p><strong>CoinGecko API</strong> (api.coingecko.com) — to fetch USD prices and FLIP 30-day price chart data.</p>
 
@@ -45,7 +47,7 @@
   <p>These permissions are used only for the described functionality. The extension cannot read or modify any other websites.</p>
 
   <h2>Third parties</h2>
-  <p>This extension is built by a community contributor and uses Chainflip's public APIs and CoinGecko's public API.</p>
+  <p>This extension is built by a community contributor and uses Chainflip's public APIs, CoinGecko's public API, and a public Ethereum RPC (PublicNode) for the optional FLIP balance lookup.</p>
 
   <h2>Contact</h2>
   <p>For questions about this privacy policy or the extension, reach out via <a href="https://blog.chainflip.io/private-support-ticketing-now-live-chainflip-support/">Chainflip Support</a>.</p>
