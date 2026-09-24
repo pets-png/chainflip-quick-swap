@@ -23,7 +23,7 @@
   <h2>Data we collect</h2>
   <p>We collect nothing about you. There are no accounts, no analytics, no tracking and no telemetry, and nothing you do in the extension is profiled, shared or sold.</p>
   <p>Completing a swap does, however, require the extension to <strong>transmit</strong> data. When you confirm a swap, your destination address, your refund address, the asset pair and the amount are sent to chainflip-broker.io so that a deposit address can be created for you. That is the swap request itself rather than analytics, and it cannot be avoided while still executing a swap in the popup. If you only fetch quotes, or use the "open on swap.chainflip.io" path, no address is sent to that service.</p>
-  <p>Using the FLIP position overview also transmits data: an address you enter (or the Chainflip account derived from it) is sent to Chainflip's GraphQL services to read its delegated stake and reward history, and, for an Ethereum address, to a public Ethereum RPC to read the wallet's FLIP token balance. This is the lookup you asked for, not analytics, and it happens only for addresses you enter into that feature.</p>
+  <p>Using the FLIP position overview also transmits data: an address you enter (or the Chainflip account derived from it) is sent to Chainflip's GraphQL services to read its delegated stake and reward history, to Chainflip's public node (mainnet-rpc.chainflip.io) to read its undelegated FLIP balance, and, for an Ethereum address, to a public Ethereum RPC to read the wallet's FLIP token balance. This is the lookup you asked for, not analytics, and it happens only for addresses you enter into that feature.</p>
 
   <h2>Data stored locally</h2>
   <p>The extension stores the following in your browser's local storage and extension storage: swap preferences (selected assets, amounts, mode), saved wallet addresses in the address book, swap history, UI settings (network, boost preference), any pending deposit channel, the wallet addresses you add to the FLIP position overview, and 30-day service status history for the Status tab.</p>
@@ -47,7 +47,7 @@
   <p>These permissions are used only for the described functionality. The extension cannot read or modify any other websites.</p>
 
   <h2>Third parties</h2>
-  <p>This extension is built by a community contributor and uses Chainflip's public APIs, CoinGecko's public API, and a public Ethereum RPC (PublicNode) for the optional FLIP balance lookup.</p>
+  <p>This extension is built by a community contributor and uses Chainflip's public APIs (including its public node RPC), CoinGecko's public API, and a public Ethereum RPC (PublicNode) for the optional FLIP balance lookup.</p>
 
   <h2>Contact</h2>
   <p>For questions about this privacy policy or the extension, reach out via <a href="https://blog.chainflip.io/private-support-ticketing-now-live-chainflip-support/">Chainflip Support</a>.</p>
